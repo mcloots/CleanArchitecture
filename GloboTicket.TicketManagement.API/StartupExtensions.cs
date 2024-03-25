@@ -26,7 +26,7 @@ namespace GloboTicket.TicketManagement.API
             .AllowAnyHeader()
             .AllowCredentials()));
 
-            //builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen();
 
             return builder.Build();
         }
@@ -36,11 +36,11 @@ namespace GloboTicket.TicketManagement.API
 
             app.UseCors("open");
 
-            //if (app.Environment.IsDevelopment())
-            //{
-            //    app.UseSwagger();
-            //    app.UseSwaggerUI();
-            //}
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
 
             app.UseHttpsRedirection();
             app.MapControllers();
